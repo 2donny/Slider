@@ -4,39 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Slider</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        }
-        .slider {
-            width: 100%;
-            position: relative;
-        }
-        .slider__item {
-            width: 100%;
-            height: 500px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: absolute; 
-            top: 0;
-            opacity: 0;
-            transition: all .5s linear;
-            transform: scale(0.9);
-        }
-        .slider__item:nth-child(odd) {
-            background-color: #8e44ad;
-        }
-        .slider__item:nth-child(even) {
-            background-color: #3498db;
-        }
-        .showing {
-            z-index: 1;
-            opacity: 1;
-            transform: none;
-        }
-    </style>
+    <script src="./main.js" defer></script>
+    <link rel="stylesheet" href="./index.css">
 </head>
 <body>
     <div class="slider">
@@ -46,33 +15,6 @@
         <div class="slider__item"><h1>4</h1></div>
         <div class="slider__item"><h1>5</h1></div>
     </div>
-    <script>
-        const SHOWING_CLASS = "showing";
-        const firstSlider = document.querySelector('.slider__item:first-child');
-
-        function slide() {
-            const currentSlider = document.querySelector(`.${SHOWING_CLASS}`);
-
-            if(currentSlider) {
-                currentSlider.classList.remove(SHOWING_CLASS);
-                const nextSlider = currentSlider.nextElementSibling;
-
-                if(nextSlider) {
-                    nextSlider.classList.add(SHOWING_CLASS);
-                } 
-                else {
-                    firstSlider.classList.add(SHOWING_CLASS);
-                }
-            }
-            else {
-                firstSlider.classList.add(SHOWING_CLASS);
-            }
-
-        }
-        slide();
-        setInterval(slide, 2000);
-        
-
-    </script>
+    
 </body>
 </html>
